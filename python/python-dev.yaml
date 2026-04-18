@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: python-dev
+  name: python-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-dev
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: python-dev
+    spec:
+      containers:
+      - image: python:3.12.13-bookworm
+        name: python
+        command: ["sleep", "infinity"]
+        resources: {}
+        volumeMounts:
+        - name: projects
+          mountPath: /projects
+      volumes:
+      - name: projects
+        nfs:
+          server: 10.0.0.92
+          path: /home/k8admin/projects
+
+status: {}
