@@ -3,7 +3,7 @@
 
 * Certificate Authority - cert-manager
 
-* Cloudflare Domain 
+:white_check_mark: Cloudflare Domain 
 
 * Ingress Controller - NGNIX or Traefik
 
